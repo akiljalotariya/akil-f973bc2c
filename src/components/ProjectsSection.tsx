@@ -1,25 +1,28 @@
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "./ui/button";
 
 const projects = [
   {
-    title: "MERN Task Manager",
-    description: "A full-stack task management application with user authentication, CRUD operations, and real-time updates. Built with MongoDB, Express, React, and Node.js.",
-    tags: ["MongoDB", "Express", "React", "Node.js", "JWT"],
+    title: "E-commerce Store",
+    description: "A full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    tags: ["React", "Node.js", "MongoDB", "Stripe"],
     demoLink: "#",
     githubLink: "#",
   },
   {
-    title: "React Portfolio Website",
-    description: "A modern, responsive portfolio website showcasing projects and skills. Features smooth animations, dark theme, and optimized performance.",
+    title: "Task Manager App",
+    description: "A collaborative task management tool with real-time updates and team features.",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+    tags: ["MERN Stack", "Socket.io", "JWT"],
+    demoLink: "#",
+    githubLink: "#",
+  },
+  {
+    title: "Portfolio Website",
+    description: "A modern, responsive portfolio website showcasing projects and skills.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
     tags: ["React", "Tailwind CSS", "Framer Motion"],
-    demoLink: "#",
-    githubLink: "#",
-  },
-  {
-    title: "RESTful API Project",
-    description: "A robust REST API built with Node.js and Express. Includes authentication, rate limiting, and comprehensive documentation using Swagger.",
-    tags: ["Node.js", "Express", "MongoDB", "Swagger"],
     demoLink: "#",
     githubLink: "#",
   },
@@ -27,14 +30,14 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="section-container">
+    <section id="projects" className="section-container bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">
-            My <span className="text-gradient">Projects</span>
+            Featured <span className="text-primary">Projects</span>
           </h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            A showcase of my recent work and personal projects
+            A selection of my recent work and personal projects
           </p>
         </div>
 
@@ -42,14 +45,15 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <article
               key={index}
-              className="group rounded-2xl glass overflow-hidden hover:shadow-glow transition-all duration-500 hover:-translate-y-2"
+              className="group rounded-2xl bg-background border border-border overflow-hidden card-hover"
             >
-              {/* Project Image Placeholder */}
-              <div className="aspect-video bg-gradient-card relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Folder className="w-16 h-16 text-primary/30 group-hover:text-primary/50 group-hover:scale-110 transition-all duration-500" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Project Image */}
+              <div className="aspect-video overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
               {/* Project Content */}
@@ -67,7 +71,7 @@ const ProjectsSection = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs rounded-full bg-secondary text-muted-foreground"
+                      className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium"
                     >
                       {tag}
                     </span>
@@ -96,10 +100,10 @@ const ProjectsSection = () => {
 
         {/* View More */}
         <div className="text-center mt-12">
-          <Button variant="heroOutline" size="lg" asChild>
+          <Button variant="outline" size="lg" asChild>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
               <Github className="mr-2" size={20} />
-              View All Projects on GitHub
+              View All Projects
             </a>
           </Button>
         </div>

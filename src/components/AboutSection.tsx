@@ -1,96 +1,87 @@
-import { Code2, GraduationCap, Briefcase } from "lucide-react";
+import { Monitor, Server, Layers, Wrench } from "lucide-react";
+
+const features = [
+  {
+    icon: Monitor,
+    title: "Frontend Development",
+    description: "Building responsive UIs with React, HTML, CSS, and JavaScript.",
+  },
+  {
+    icon: Server,
+    title: "Backend Development",
+    description: "Creating robust APIs with Node.js, Express, and MongoDB.",
+  },
+  {
+    icon: Layers,
+    title: "Full Stack Development",
+    description: "End-to-end application development using the MERN stack.",
+  },
+  {
+    icon: Wrench,
+    title: "Website Maintenance",
+    description: "Keeping websites updated, secure, and performing optimally.",
+  },
+];
 
 const AboutSection = () => {
-  const highlights = [
-    {
-      icon: GraduationCap,
-      title: "BCA Student",
-      description: "Pursuing Bachelor of Computer Applications",
-    },
-    {
-      icon: Briefcase,
-      title: "Intern",
-      description: "Learning at Valudas Tech Park",
-    },
-    {
-      icon: Code2,
-      title: "Developer",
-      description: "Building with MERN Stack",
-    },
-  ];
-
   return (
-    <section id="about" className="section-container">
+    <section id="about" className="section-container bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">
-            About <span className="text-gradient">Me</span>
+            About <span className="text-primary">Me</span>
           </h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Get to know me better
+            I'm a dedicated developer crafting digital experiences with modern technologies
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image/Visual Side */}
-          <div className="relative">
-            <div className="aspect-square rounded-2xl bg-gradient-card glass overflow-hidden shadow-glow">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-9xl font-bold text-gradient opacity-20">JA</div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="grid grid-cols-3 gap-4">
-                  {highlights.map((item, index) => (
-                    <div
-                      key={index}
-                      className="text-center p-4 rounded-xl glass hover:bg-secondary/50 transition-all duration-300"
-                    >
-                      <item.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                      <p className="text-xs text-muted-foreground">{item.title}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Content Side */}
+        {/* About Content */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* Text Content */}
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold text-foreground">
-              Hello! I'm <span className="text-gradient">Akil</span>
+              Bridging Learning & Industry
             </h3>
             
             <p className="text-muted-foreground leading-relaxed">
-              I'm a dedicated BCA student with a burning passion for web development and technology. 
-              My journey into the world of programming started with curiosity and has evolved into a 
-              full-fledged pursuit of becoming a professional full-stack developer.
+              I'm a BCA student passionate about web development, currently interning at 
+              Valudas Tech Park. I specialize in building full-stack web applications 
+              using the MERN stack — MongoDB, Express.js, React, and Node.js.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              Currently, I'm honing my skills through an exciting internship at Valudas Tech Park, 
-              where I get hands-on experience working on real-world projects. This opportunity has 
-              allowed me to apply my theoretical knowledge to practical scenarios, collaborate with 
-              experienced developers, and understand the dynamics of professional software development.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed">
-              My primary focus is on the MERN stack — MongoDB, Express.js, React, and Node.js. 
-              I believe in writing clean, maintainable code and building applications that not 
-              only work well but also provide great user experiences. Every project I work on is 
-              an opportunity to learn something new and push my boundaries further.
+              My internship experience has given me hands-on exposure to real-world 
+              projects, agile workflows, and industry-standard coding practices. I love 
+              turning ideas into functional, beautiful applications that solve real problems.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-4">
-              {["Problem Solver", "Quick Learner", "Team Player", "Detail Oriented"].map((trait) => (
+              {["React", "Node.js", "MongoDB", "Express.js"].map((tech) => (
                 <span
-                  key={trait}
-                  className="px-4 py-2 rounded-full glass text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300"
+                  key={tech}
+                  className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium"
                 >
-                  {trait}
+                  {tech}
                 </span>
               ))}
             </div>
+          </div>
+
+          {/* Feature Cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-secondary/50 border border-border card-hover"
+              >
+                <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="font-semibold text-foreground mb-2">{feature.title}</h4>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
