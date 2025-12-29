@@ -1,55 +1,38 @@
-import { Database, Server, Code, FileCode, Layers, GitBranch, Globe, Palette } from "lucide-react";
-
-const skills = [
-  {
-    name: "MongoDB",
-    icon: Database,
-    color: "text-green-500",
-    description: "NoSQL Database",
-  },
-  {
-    name: "Express.js",
-    icon: Server,
-    color: "text-gray-400",
-    description: "Backend Framework",
-  },
-  {
-    name: "React",
-    icon: Code,
-    color: "text-cyan-400",
-    description: "Frontend Library",
-  },
-  {
-    name: "Node.js",
-    icon: Layers,
-    color: "text-green-400",
-    description: "Runtime Environment",
-  },
-  {
-    name: "JavaScript",
-    icon: FileCode,
-    color: "text-yellow-400",
-    description: "Programming Language",
-  },
-  {
-    name: "HTML & CSS",
-    icon: Palette,
-    color: "text-orange-400",
-    description: "Web Fundamentals",
-  },
-  {
-    name: "Git & GitHub",
-    icon: GitBranch,
-    color: "text-purple-400",
-    description: "Version Control",
-  },
-  {
-    name: "REST APIs",
-    icon: Globe,
-    color: "text-blue-400",
-    description: "API Development",
-  },
+const frontendSkills = [
+  { name: "HTML/CSS", level: 90 },
+  { name: "JavaScript", level: 85 },
+  { name: "React.js", level: 80 },
+  { name: "Tailwind CSS", level: 85 },
 ];
+
+const backendSkills = [
+  { name: "Node.js", level: 75 },
+  { name: "Express.js", level: 80 },
+  { name: "MongoDB", level: 70 },
+  { name: "REST APIs", level: 75 },
+];
+
+const tools = [
+  { name: "Git", level: 80 },
+  { name: "GitHub", level: 85 },
+  { name: "VS Code", level: 90 },
+  { name: "Postman", level: 75 },
+];
+
+const SkillBar = ({ name, level }: { name: string; level: number }) => (
+  <div className="space-y-2">
+    <div className="flex justify-between text-sm">
+      <span className="text-foreground font-medium">{name}</span>
+      <span className="text-muted-foreground">{level}%</span>
+    </div>
+    <div className="progress-bar">
+      <div 
+        className="progress-bar-fill" 
+        style={{ width: `${level}%` }}
+      />
+    </div>
+  </div>
+);
 
 const SkillsSection = () => {
   return (
@@ -57,50 +40,43 @@ const SkillsSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">
-            My <span className="text-gradient">Skills</span>
+            My <span className="text-primary">Skills</span>
           </h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Technologies I work with to bring ideas to life
+            I enjoy learning new tools and technologies that help me build better applications
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="group p-6 rounded-2xl glass hover:bg-card/80 transition-all duration-500 hover:scale-105 hover:shadow-glow cursor-default"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className={`p-4 rounded-xl bg-secondary/50 group-hover:bg-secondary transition-colors duration-300`}>
-                  <skill.icon className={`w-8 h-8 ${skill.color} group-hover:scale-110 transition-transform duration-300`} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {skill.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {skill.description}
-                  </p>
-                </div>
-              </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Frontend */}
+          <div className="bg-background p-8 rounded-2xl shadow-card border border-border">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Frontend</h3>
+            <div className="space-y-5">
+              {frontendSkills.map((skill) => (
+                <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* MERN Stack Highlight */}
-        <div className="mt-16 p-8 rounded-2xl glass text-center">
-          <h3 className="text-2xl font-bold mb-4">
-            <span className="text-green-500">M</span>
-            <span className="text-gray-400">E</span>
-            <span className="text-cyan-400">R</span>
-            <span className="text-green-400">N</span>
-            <span className="text-foreground ml-2">Stack Developer</span>
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Specializing in building full-stack web applications using MongoDB, Express.js, React, 
-            and Node.js. From database design to beautiful user interfaces, I handle it all.
-          </p>
+          {/* Backend */}
+          <div className="bg-background p-8 rounded-2xl shadow-card border border-border">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Backend</h3>
+            <div className="space-y-5">
+              {backendSkills.map((skill) => (
+                <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+              ))}
+            </div>
+          </div>
+
+          {/* Tools */}
+          <div className="bg-background p-8 rounded-2xl shadow-card border border-border">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Tools</h3>
+            <div className="space-y-5">
+              {tools.map((skill) => (
+                <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
