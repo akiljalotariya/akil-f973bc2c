@@ -30,7 +30,7 @@ const CTASection = () => {
               className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
             >
               <FileText className="mr-2" size={18} />
-              View Portfolio
+              Resume
             </Button>
           </div>
         </div>
