@@ -1,14 +1,13 @@
 import { ArrowDown, Download } from "lucide-react";
 import { Button } from "./ui/button";
-import developerImage from "@/assets/developer-hero.png";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="stagger-children order-2 lg:order-1">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Text Content */}
+          <div className="stagger-children">
             {/* Greeting */}
             <p className="text-muted-foreground text-lg mb-2">👋 Hello!</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight text-foreground">
@@ -16,7 +15,7 @@ const HeroSection = () => {
             </h1>
 
             {/* Code Block */}
-            <div className="mb-8 rounded-xl overflow-hidden shadow-card max-w-lg border border-border">
+            <div className="mb-8 rounded-xl overflow-hidden shadow-card max-w-lg border border-border mx-auto">
               {/* Code Window Header */}
               <div className="bg-slate-800 px-4 py-3 flex items-center gap-2">
                 <div className="flex gap-2">
@@ -39,7 +38,7 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="group" asChild>
                 <a href="#projects">
                   View My Work
@@ -53,28 +52,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Image */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Image Container */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary shadow-card">
-                <img 
-                  src={developerImage} 
-                  alt="Developer coding at multi-monitor setup"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Decorative dot pattern */}
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 opacity-30">
-                <div className="grid grid-cols-4 gap-2">
-                  {[...Array(16)].map((_, i) => (
-                    <div key={i} className="w-2 h-2 rounded-full bg-primary" />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Scroll Indicator */}
